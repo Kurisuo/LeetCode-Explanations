@@ -18,6 +18,7 @@ public:
         for(int i = 0; i < smallestStr; i++){ //outer loop for iterating up until smallest str length and iterating through chars of first string
 
             auto currPrefix = strs[0][i]; //gets us char of the first string in arr
+           
             for(string &s : strs){  //check all other strings
 
                 if (s[i] != currPrefix){ //compare first char of current string to currPrefix

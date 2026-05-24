@@ -1,0 +1,41 @@
+## LeetCode 14:
+
+ ---> Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string "".
+
+
+ // What can I use:
+ // - .sort() to order the strings based on length?
+ // - .min() to help find the smallest strings?
+ // ---> loop up until length of that smallest string, useless to go beyond 
+ // where to store the string? Best to keep seperate from comparison checks to avoid adding complexity 
+ // how do i keep track of the prefixes so far?
+ // ----> we could take the smallest string and compare it against all OTHER strings? --> double for loop needed
+ // --> inside nested loop: we could compare against if the current character equals the current character of all other string in the array? --> No check against so we can have a return statement inside
+ // --> store.push_back(character) to store identical char into prefix string which we will return 
+
+class Sol {
+    public:
+
+        string prefix = ""; //Initialize as empty
+
+        int smallest = arr[0].length();
+
+        for(string &x : arr){
+            smallest = min(smallest, (int) x);
+        } //gets us the smallest string length
+
+        for (int i = 0; i < smallest; i++) { //iterate through char of smallest string 
+
+            auto compare = arr[0][i]; //used to get char 'i' of string at index 0 
+
+            for(string &otherStrings : arr) { //iterate through all strings in arr and check their characters against 'i'
+                if(otherStrings[i] != compare){ 
+                    return prefix;
+                }
+            }
+            
+            prefix.push_back(compare);
+        }
+
+        return prefix;
+};
