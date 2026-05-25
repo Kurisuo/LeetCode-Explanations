@@ -1,6 +1,33 @@
+##LeetCode 160 Intersection of Two Linked Lists
+
+--> The strategy I used for this one involved iterating until we hit nullptr, in which we would have the pntr switch to point to the head of the other node head and iterate against
+---> By doing this we guarentee: (a + b) = intersection
+
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+
+        auto* a = headA;
+        auto* b = headB;
+
+
+        while ((a != b )) { 
+            
+            if(a  == nullptr){ 
+                a = headB;
+            } 
+            else{ a = a -> next;}
+            
+            if(b  == nullptr){ 
+                b = headA;
+            } 
+            else{ b = b -> next;}
+        }       
+        
+
+        return a;
+    }
+
+
 ##LeetCode 252 Meeting Rooms
-
-
 
  sort(intervals.begin(), intervals.end(), [](const vector<int>& left, const vector<int>& right){
             return left[0] < right[0];});
