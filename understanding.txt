@@ -1,3 +1,31 @@
+##LeetCode 252 Meeting Rooms
+
+
+
+ sort(intervals.begin(), intervals.end(), [](const vector<int>& left, const vector<int>& right){
+            return left[0] < right[0];});
+
+---> The lambda function I wrote:  
+    [](const vector<int>& left, const vector<int>& right){return left[0] < right[0];} 
+    Captures TWO vector groups, names left and right. Because we have captured whole groups,
+    we can directly access their values as if using a 1D vector, hence left[0] & right[0];
+    The lambda tells our sorting function to sort by ascending index 0s for all groups so for example:
+    
+    before: [2, 50], [1, 20], [23, 50], [18, 23]
+    after: [1,20], [2, 50], [18, 23], [23, 50]
+
+--> We can now use these sorted vectors to check the adjacent values. If i - 1 > i, then we cannot attend all
+    
+    if(intervals[x][0] < intervals[x - 1][1]){ return false; }
+    return true;
+
+    Here we are checking to see if the group to the RIGHT contains an adjacent value LESS THAN the value of the LEFT group.
+    If that is true, we know that it is IMPOSSIBLE to attend all scheduled meetings due to overlap
+    Ex: (5, 10), (7, 10)
+        --> Since 10 < 7 is NOT true, we cannot attend both meetings
+
+
+
 ## LeetCode 14:
 
  ---> Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string "".
@@ -39,3 +67,5 @@ class Sol {
 
         return prefix;
 };
+
+
