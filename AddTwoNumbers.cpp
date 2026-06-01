@@ -13,8 +13,7 @@
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-      //  ListNode* l1_copy = l1;
-      //  ListNode* l2_copy = l2;
+
         ListNode* retList = new ListNode();
         ListNode* curr = retList;
         ListNode* head = retList;
