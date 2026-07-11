@@ -1,4 +1,4 @@
-//LeetCode: Longest Substring without repeating characters
+//LeetCode 3: Longest Substring without repeating characters
 
 //Given a string s, find the length of the longest substring without duplicate characters.
 
